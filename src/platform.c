@@ -29,9 +29,10 @@ static sPlatform platforms[] = {
     { EPlatformFalcon,      EGameUnknown, "Atari Falcon", "FO", 0x400000, 0xfa00, 320, 200, 8, 0, "" },
     { EPlatformAmiga,       EGameUnknown, "Amiga",        "CO", 0x100000, 0x8000, 320, 200, 4, 0, "" },
     { EPlatformAmigaAGA,    EGameUnknown, "Amiga AGA",    "DO", 0x400000, 0xfa00, 320, 200, 8, 0, "" },
-    { EPlatformMac,         EGameUnknown, "Macintosh",    "MO",        0,      0, 320, 200, 4, 0, "" },
+    { EPlatformMacBW,       EGameUnknown, "Macintosh BW", "MO",        0,      0, 320, 200, 4, 0, "" },
     { EPlatformPC,          EGameUnknown, "MS/DOS",       "IO",        0,      0, 320, 200, 8, 1, "" },
     { EPlatformAmstradCPC,  EGameUnknown, "Amstrad CPC",  "??",        0,      0, 320, 200, 2, 1, "" },
+    { EPlatformMac,         EGameUnknown, "Macintosh",    "??",        0,      0, 320, 200, 2, 1, "" },
     { EPlatformUnknown,     EGameUnknown, "Unknown",      "??",        0,      0,   0,   0, 0, 0, "" },
 };
 
@@ -72,7 +73,7 @@ sPlatform* pl_guess(const char * path) {
         // that matches one of the declared platforms
         char main_path[kPathMaxLen];
         while ((ent = readdir(dir)) != NULL) {
-            if(ent->d_type == DT_REG) {
+            if(ent->d_namlen != 0) {
                 // look for main script
                 if(!strncasecmp(ent->d_name, kMainScriptName, strlen(kMainScriptName))) {
                     memset(main_path, 0, kPathMaxLen);
@@ -91,7 +92,7 @@ sPlatform* pl_guess(const char * path) {
         dir = opendir(path);
 
         while ((ent = readdir(dir)) != NULL) {
-            if(ent->d_type == DT_REG) {
+            if(ent->d_namlen != 0) {
                 // try to identify game
                 if(!strncasecmp(ent->d_name, kMadShowScriptName, strlen(kMadShowScriptName))) {
                     
@@ -110,7 +111,7 @@ sPlatform* pl_guess(const char * path) {
                 }
                 else if(!strncasecmp(ent->d_name, kMayaScriptName, strlen(kMayaScriptName))) {
                     
-                    platform->game = EGameLeFéticheMaya;
+                    platform->game = EGameLeFeticheMaya;
                     break;
                 }
                 else if(!strncasecmp(ent->d_name, kColoradoScriptName, strlen(kColoradoScriptName))) {
@@ -199,7 +200,7 @@ sPlatform* pl_guess(const char * path) {
             
         case EGameMadShow:
         case EGameTarghan:
-        case EGameLeFéticheMaya:
+        case EGameLeFeticheMaya:
         case EGameColorado:
         case EGameStarblade:
         case EGameCrystalsOfArborea:

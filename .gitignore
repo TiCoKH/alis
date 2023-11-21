@@ -1,6 +1,6 @@
 DerivedData/
 .DS_Store
-build
+build/
 **/xcuserdata
 .vscode/
 data/

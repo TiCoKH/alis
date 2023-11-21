@@ -835,7 +835,7 @@ s16 tabchar(s16 offset, u8 *address)
 s16 tabstring(s16 offset, u8 *address)
 {
     s16 *ptr = (s16 *)(address + offset - 2);
-    s16 result = offset + alis.varD7 * (ushort)*(u8 *)ptr;
+    s16 result = offset + alis.varD7 * (u16)*(u8 *)ptr;
     s16 length = *(s8 *)(address + offset - 1);
     for (int i = 0; i < length; i++)
     {

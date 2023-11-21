@@ -21,6 +21,8 @@
 
 #include "debug.h"
 
+#define DISABLE_LOG_COLOR
+
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
@@ -50,9 +52,15 @@ void debug(EDebugLevel level, char * format, ...) {
     if(level <= DEBUG_LEVEL) {
         va_list arg;
         va_start(arg, format);
+#ifndef DISABLE_LOG_COLOR
         printf("%s%s ", debug_colors[level], debug_prefix[level]);
+#else
+        printf("%s ", debug_prefix[level]);
+#endif
         vprintf(format, arg);
+#ifndef DISABLE_LOG_COLOR        
         printf("%s", ANSI_COLOR_RESET);
+#endif
         fflush(stdout);
         va_end(arg);
     }

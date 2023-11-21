@@ -608,7 +608,7 @@ u16 sys_get_model(void) {
 //        case EPlatformAmigaAGA:     // ???
         case EPlatformAtari:        return 0x456;
         case EPlatformFalcon:       return 0x1388;
-//        case EPlatformMac:          // ???
+//        case EPlatformMacBW:          // ???
         case EPlatformPC:           return 0x7d4; // (I2 7d0 - 7d4, I3 0x7ee - 7f2)
         default:                    return 0x456;
     };

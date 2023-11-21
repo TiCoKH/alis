@@ -48,9 +48,10 @@ typedef enum {
     EPlatformFalcon,
     EPlatformAmiga,
     EPlatformAmigaAGA,
-    EPlatformMac,
+    EPlatformMacBW,
     EPlatformPC,
     EPlatformAmstradCPC,
+    EPlatformMac,
     EPlatformUnknown
 } EPlatform;
 
@@ -59,7 +60,7 @@ typedef enum {
     EGameMadShow,               // Mad Show
     EGameTarghan,               // Targhan
     EGameWindsurfWilly,         // Windsurf Willy
-    EGameLeFéticheMaya,         // Le Fétiche Maya
+    EGameLeFeticheMaya,         // Le Fétiche Maya
     EGameColorado,              // Colorado
     EGameStarblade,             // Starblade
     EGameCrystalsOfArborea,     // Crystals of Arborea

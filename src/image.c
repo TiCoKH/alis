@@ -33,7 +33,7 @@
 
 #define FRAME_TICKS (1000000 / 50) // 25 fps looks about right in logo animation
 
-#define DEBUG_CHECK 0
+#define DEBUG_CHECK 1
 
 #if DEBUG_CHECK > 0
 # define VERIFYINTEGRITY verifyintegrity()
@@ -1771,7 +1771,7 @@ void clipback(void)
     image.cback = -1;
 }
 
-void drawmap(sSprite *sprite, uint mapaddr)
+void drawmap(sSprite *sprite, u32 mapaddr)
 {
     s32 vram = xread32(xread16(mapaddr - 0x24) + alis.atent);
     if (vram != 0)

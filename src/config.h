@@ -37,8 +37,8 @@
 #include <sys/stat.h>
 #include <sys/time.h>
 #include <sys/types.h>
-#include <sys/termios.h>
-#include <sys/mman.h>
+//#include <sys/termios.h>
+//#include <sys/mman.h>
 
 #define kProgName           "alis"
 #define kProgVersion        "0.1.0"
@@ -46,11 +46,14 @@
 #define kNameMaxLen         (16)
 #define kDescMaxLen         (1024)
 
-#ifdef _WIN32
-#  define kPathSeparator    '\\'
-#else
+//#ifdef _WIN32
+//#  define kPathSeparator    '\\'
+//#elif __MINGW64__
+//#  undef kPathSeparator
+//#  define kPathSeparator    '/'
+//#else
 #  define kPathSeparator    '/'
-#endif
+//#endif
 
 typedef uint8_t             u8;
 typedef uint16_t            u16;
@@ -73,4 +76,4 @@ typedef enum {
     EDebugVerbose,
 } EDebugLevel;
 
-#define DEBUG_LEVEL         EDebugWarning
+#define DEBUG_LEVEL         EDebugInfo

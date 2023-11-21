@@ -15,7 +15,7 @@ include_directories(src/depack)
 add_executable(alis 
                src/sys/sdl2/sys_sdl2.c
                src/main.c
-               src/addnames.c src/alis.c src/debug.c src/escnames.c src/image.c 
+               src/addnames.c src/alis.c src/debug.c src/escnames.c src/image.c src/channel.c
                src/opcodes.c src/opernames.c src/platform.c src/screen.c
                src/script.c src/storenames.c src/unpack.c src/utils.c)
 
